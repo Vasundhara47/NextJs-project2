@@ -2,11 +2,10 @@
 import React from 'react'
 import Link from 'next/link';
 import { Image, Card, Input, Form, Button, Redirect } from '@/components';
-import { useSession, signIn } from "next-auth/react"
+import { signIn } from "next-auth/react"
 
 function SignupPage() {
 
-    const { data: session } = useSession()
     return (
         <>
             <Card>
