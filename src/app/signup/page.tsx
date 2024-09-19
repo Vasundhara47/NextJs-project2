@@ -31,8 +31,9 @@ function SignupPage() {
         onSubmit: (values, action) => {
             console.log(values);
             action.resetForm()
-            router.push('/')
-
+            setTimeout(() => {
+                router.push('/')
+            }, 1000)
         }
     })
 
