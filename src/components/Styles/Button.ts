@@ -4,7 +4,7 @@ interface ButtonProps {
     secondary?: boolean;
 }
 export const Button = styled.button<ButtonProps>`
-    background-color: #0099fe;
+    background-color: #064f80;
     color: #fff;
     border: none;
     padding: 12px;

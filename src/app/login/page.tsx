@@ -1,21 +1,60 @@
 "use client"
 import React from 'react'
-import styled from 'styled-components'
 import Link from 'next/link';
-import { Image, Card, Input, Form, Button, Redirect } from '@/components';
+import { Image, Card, Form, Button, Redirect, PasswordField } from '@/components';
 import { signIn } from "next-auth/react"
+import { useFormik } from 'formik';
+import { LoginSchema } from '../schemas/loginSchema';
+import { TextField } from '@mui/material';
+import { useRouter } from 'next/navigation'
+
+interface InitialValues {
+    email: string,
+    password: string
+}
 
 function LoginPage() {
 
+    const router = useRouter()
 
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik<InitialValues>({
+        initialValues: {
+            email: "",
+            password: ""
+        },
+        validationSchema: LoginSchema,
+        onSubmit: (values, action) => {
+            console.log(values);
+            action.resetForm()
+
+            router.push('/')
+
+        }
+    })
     return (
         <>
             <Card>
                 <h2>Log In</h2>
-                <Form >
-                    <Input type='text' placeholder="Email" name="email"></Input>
-                    <Input type='password' placeholder="Password" name="password"></Input>
-                    <Button type="submit" >Sign Up</Button>
+                <Form onSubmit={handleSubmit}>
+                    <TextField
+                        label="Email"
+                        name='email'
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={errors.email && touched.email ? errors.email : null}
+                        FormHelperTextProps={{
+                            style: { color: 'red' },
+                        }}
+                    ></TextField>
+                    <PasswordField
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={errors.password && touched.password ? errors.password : ""}
+                        error={Boolean(errors.password && touched.password)}
+                    />
+                    <Button type="submit" >Log In</Button>
                     <Redirect>Don't have an account <Link href={'/signup'}>Signup</Link></Redirect>
 
                     <Button secondary

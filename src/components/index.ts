@@ -1,9 +1,10 @@
-import { Button } from "./Button"
-import { Image } from "./Image";
-import { Input } from "./InputField";
-import { Card } from "./Card";
-import { Form } from "./Form";
-import { Redirect } from "./Redirect";
+import { Button } from "./Styles/Button"
+import { Image } from "./Styles/Image";
+import { Card } from "./Styles/Card";
+import { Form } from "./Styles/Form";
+import { Redirect } from "./Styles/Redirect";
+import { PasswordField } from "./Ui/passwordField";
+import Header from "./Ui/Header";
 
 
-export { Button, Image, Input, Card, Form, Redirect }
+export { Button, Image, Card, Form, Redirect, PasswordField, Header }
