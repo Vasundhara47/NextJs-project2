@@ -24,14 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-
-    <html lang="en">
-      <body>
-        <SessionWrapper>
+    <SessionWrapper>
+      <html lang="en">
+        <body>
           {children}
-        </SessionWrapper>
-      </body>
-    </html>
+        </body>
+      </html>
+    </SessionWrapper>
 
   );
 }

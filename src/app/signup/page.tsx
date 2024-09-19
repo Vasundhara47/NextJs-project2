@@ -49,6 +49,7 @@ function SignupPage() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={errors.firstName && touched.firstName ? errors.firstName : null}
+                        error={Boolean(errors.firstName && touched.firstName)}
                         FormHelperTextProps={{
                             style: { color: 'red' },
                         }}
@@ -61,6 +62,7 @@ function SignupPage() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={errors.lastName && touched.lastName ? errors.lastName : null}
+                        error={Boolean(errors.lastName && touched.lastName)}
                         FormHelperTextProps={{
                             style: { color: 'red' },
                         }}
@@ -74,6 +76,7 @@ function SignupPage() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={errors.email && touched.email ? errors.email : null}
+                        error={Boolean(errors.email && touched.email)}
                         FormHelperTextProps={{
                             style: { color: 'red' },
                         }}
@@ -110,7 +113,7 @@ function SignupPage() {
                     <Button
                         secondary
                         type="button"
-                        onClick={() => signIn("google")}
+                        onClick={() => signIn("google", { callbackUrl: '/' })}
                     >
                         <Image src='https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png'></Image>
                         Sign In with Google

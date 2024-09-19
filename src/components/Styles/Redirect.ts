@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Redirect = styled.div`
   display:flex;
   justify-content:center;
@@ -6,3 +7,4 @@ export const Redirect = styled.div`
   font-size: 12px;
   
 `
+

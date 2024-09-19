@@ -32,7 +32,7 @@ function LoginPage() {
         }
     })
     return (
-        <>
+        <div>
             <Card>
                 <h2>Log In</h2>
                 <Form onSubmit={handleSubmit}>
@@ -43,6 +43,7 @@ function LoginPage() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={errors.email && touched.email ? errors.email : null}
+                        error={Boolean(errors.email && touched.email)}
                         FormHelperTextProps={{
                             style: { color: 'red' },
                         }}
@@ -55,21 +56,18 @@ function LoginPage() {
                         error={Boolean(errors.password && touched.password)}
                     />
                     <Button type="submit" >Log In</Button>
-                    <Redirect>Don't have an account <Link href={'/signup'}>Signup</Link></Redirect>
 
+                    <Redirect>Don't have an account <Link href={'/signup'}>Signup</Link></Redirect>
                     <Button secondary
                         type="button"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            signIn("google")
-                        }}
+                        onClick={() => signIn("google", { callbackUrl: '/' })}
                     >
                         <Image src='https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png'></Image>
-                        Sign up with Google
+                        Sign In with Google
                     </Button>
                 </Form>
             </Card>
-        </>
+        </div>
 
     )
 }
