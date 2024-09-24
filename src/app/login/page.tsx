@@ -63,7 +63,14 @@ function LoginPage() {
                         onClick={() => signIn("google", { callbackUrl: '/' })}
                     >
                         <Image src='https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png'></Image>
-                        Sign In with Google
+                        Continue with Google
+                    </Button>
+                    <Button secondary
+                        type="button"
+                        onClick={() => signIn("facebook", { callbackUrl: '/' })}
+                    >
+                        <Image src='https://cdn-icons-png.freepik.com/256/15707/15707737.png?semt=ais_hybrid'></Image>
+                        Continue with facebook
                     </Button>
                 </Form>
             </Card>
